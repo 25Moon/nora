@@ -1,0 +1,160 @@
+html {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+body {
+    background: linear-gradient(to left, indianred, #FFFF40);
+    height: 100px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+}
+div {
+    background: #00d084;
+    height: 100px;
+    color: #fff;
+}
+h1 {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 5.5em; /* Adjust size as needed */
+    color: #ffffff; /* Optional: A romantic pink color */
+    text-shadow: 2px 2px 5px black, -2px 2px 5px black, 2px -2px 5px black, -2px -2px 5px black;
+}
+
+
+/* DROPDOWN */
+.dropdown {
+    padding-top: 30px;
+    padding-right: 30px;
+    justify-content: right;
+    display: flex;
+    position: relative;
+}
+
+.dropbtn {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-color: white;
+    border: 1px solid black;
+    padding: 10px 20px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: transparent; /* Ensure background color for visibility */
+    min-width: 160px;
+    z-index: 1;
+    border-radius: 20px;
+    right: 0;
+    top: 100%; /* Align dropdown content below the button */
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border: 1px solid black;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 2px #fff;
+    border-radius: 20px;
+    background: #fff;
+}
+
+.dropdown-content a:hover {
+    background-color: transparent;
+    border-radius: 20px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+/* HEART */
+.heart {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    margin: 50px auto;
+    transform: rotate(-45deg);
+    box-shadow: 5px 5px 75px rgba(0, 0, 0, 0.5), -5px 5px 75px rgba(0, 0, 0, 0.5), -5px -5px 75px rgba(0, 0, 0, 0.5), 5px -5px 75px rgba(0, 0, 0, 0.5);
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -50px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: 50px;
+}
+
+.pics {
+    padding-top: 60px;
+    display: flex;
+    flex-direction: row; /* Default: horizontal layout */
+    justify-content: center;
+    align-items: center;
+}
+
+.item {
+    margin: 10px; /* Optional: space between items */
+}
+
+/* Media query for devices with a width less than 700px */
+@media (max-width: 700px) {
+    .pics {
+        flex-direction: column; /* Vertical layout for small screens */
+    }
+}
+
+/* Facts */
+.facts-p {
+    font-size: 2.5em; /* Adjust size as needed */
+    color: black; /* Optional: A romantic pink color */
+    text-shadow: 2px 2px 3px #fff, -2px 2px 3px #fff, 2px -2px 3px #fff, -2px -2px 3px #fff;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Letters */
+.letters-h {
+    font-size: 1.25em; /* Adjust size as needed */
+    color: black; /* Optional: A romantic pink color */
+    text-shadow: 2px 2px 3px #fff, -2px 2px 3px #fff, 2px -2px 3px #fff, -2px -2px 3px #fff;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 20px 5% 0 5%;
+}
+.letters-p {
+    font-size: 1.25em; /* Adjust size as needed */
+    color: #fff; /* Optional: A romantic pink color */
+    text-shadow: 2px 2px 3px #000, -2px 2px 3px #000, 2px -2px 3px #000, -2px -2px 3px #000;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 0 5%;
+}
