@@ -6,12 +6,7 @@ body {
     height: 100px;
     font-family: "Comic Sans MS", cursive, sans-serif;
 }
-}
-div {
-    background: #00d084;
-    height: 100px;
-    color: #fff;
-}
+
 h1 {
     font-family: 'Brush Script MT', cursive;
     font-size: 5.5em; /* Adjust size as needed */
@@ -110,6 +105,11 @@ h1 {
     left: 50px;
 }
 
+.song {
+    display: flex;
+    justify-content: center;
+}
+
 .pics {
     padding-top: 60px;
     display: flex;
@@ -159,4 +159,55 @@ h1 {
     justify-content: center;
     text-align: center;
     margin: 0 5%;
+}
+
+/* Audio */
+.audio-container {
+  position: relative;
+  width: 100%;
+  max-width: 300px; /* Adjust based on desired button size */
+  margin: auto;
+    z-index: 1;
+}
+
+.play-button {
+  width: 100%;
+  padding-bottom: 100%; /* This creates a square button */
+  background-color: transparent;
+  border-radius: 50%;
+  border: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  outline: none;
+}
+
+.play-button::before {
+  content: '';
+  position: absolute;
+  left: 51%;
+  top: 59%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-left: 40px solid black;
+  border-top: 24px solid transparent;
+  border-bottom: 24px solid transparent;
+}
+
+.play-button.pause::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 59%;
+  transform: translate(-50%, -50%);
+  width: 4px;
+  height: 5px;
+    border-left: transparent;
+  background-color: transparent;
+  border-top: 16px solid transparent;
+  border-bottom: 16px solid transparent;
+  box-shadow: 12px 0 0 3px black, -12px 0 0 3px black;
 }
