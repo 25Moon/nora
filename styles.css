@@ -241,3 +241,23 @@ h1 {
     text-align: center;
     padding: 0 3% 3%;
 }
+/*Nori*/
+.slider-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Wrapper for all slides */
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Individual slides */
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+}

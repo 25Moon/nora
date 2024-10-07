@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Nori's</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.png" type="image/png">
+</head>
+<body>
+<div class="dropdown">
+    <button class="dropbtn">Menu</button>
+    <div class="dropdown-content">
+        <a href="index.html">Home</a>
+        <a href="letters.html">Letters</a>
+        <a href="facts.html">Facts</a>
+        <a href="daily.html">Daily</a>
+        <a href="nori.html">Nori's</a>
+    </div>
+</div>
+<div class="header">
+    <h1> Nori's </h1>
+</div>
+
+<div class="slider-container">
+    <div class="slides">
+        <div class="slide slide3"><div class="item"><img src="bear.png" alt="bear-pic"/> </div></div>
+        <div class="slide slide1"><div class="item"><img src="snoopy.png" alt="snoopy-pic"/> </div></div>
+        <div class="slide slide2"><div class="item"><img src="seashells.png" alt="seashells-pic"/> </div></div>
+        <div class="slide slide3"><div class="item"><img src="bear.png" alt="bear-pic"/> </div></div>
+        <div class="slide slide1"><div class="item"><img src="snoopy.png" alt="snoopy-pic"/> </div></div>
+    </div>
+</div>
+
+<script>
+    const slides = document.querySelector('.slides');
+    const slide = document.querySelectorAll('.slide');
+    let currentSlide = 1; // Start at the first actual slide (index 1)
+    const totalSlides = slide.length;
+
+    const slideWidth = slide[0].clientWidth;
+
+    // Move to the first slide to start (since we added a clone at the beginning)
+    slides.style.transform = `translateX(-${slideWidth}px)`;
+
+    // For touch events
+    let startX = 0;
+    let endX = 0;
+
+    // Handle swipe start
+    slides.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+    });
+
+    // Handle swipe end
+    slides.addEventListener('touchend', (e) => {
+        endX = e.changedTouches[0].clientX;
+        handleSwipe();
+    });
+
+    // Function to handle swipe direction
+    function handleSwipe() {
+        const swipeThreshold = 50; // Minimum swipe distance to trigger a slide (in pixels)
+
+        if (startX - endX > swipeThreshold) {
+            // Swipe left (next slide)
+            moveToNextSlide();
+        } else if (endX - startX > swipeThreshold) {
+            // Swipe right (previous slide)
+            moveToPrevSlide();
+        }
+    }
+
+    function moveToNextSlide() {
+        if (currentSlide >= totalSlides - 1) {
+            return; // Prevent further sliding temporarily
+        }
+        currentSlide++;
+        updateSlidePosition();
+    }
+
+    function moveToPrevSlide() {
+        if (currentSlide <= 0) {
+            return; // Prevent further sliding temporarily
+        }
+        currentSlide--;
+        updateSlidePosition();
+    }
+
+    // Function to update the slide position
+    function updateSlidePosition() {
+        const slideWidth = slide[0].clientWidth;
+        slides.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+        slides.style.transition = "transform 0.5s ease-in-out";
+
+        // Handle infinite loop logic
+        if (currentSlide === totalSlides - 1) { // If on the last cloned slide
+            setTimeout(() => {
+                slides.style.transition = "none"; // Disable animation
+                currentSlide = 1; // Go to the first actual slide
+                slides.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+            }, 500); // Delay for the smooth transition to finish
+        }
+
+        if (currentSlide === 0) { // If on the first cloned slide
+            setTimeout(() => {
+                slides.style.transition = "none"; // Disable animation
+                currentSlide = totalSlides - 2; // Go to the last actual slide
+                slides.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+            }, 500); // Delay for the smooth transition to finish
+        }
+    }
+
+    // Responsive adjustment for window resizing
+    window.addEventListener('resize', updateSlidePosition);
+</script>
+
+</body>
+</html>
