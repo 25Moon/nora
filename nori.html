@@ -50,6 +50,7 @@
 
     // Handle swipe start
     slides.addEventListener('touchstart', (e) => {
+        e.preventDefault();
         startX = e.touches[0].clientX;
     });
 
