@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Daily Nori</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.png" type="image/png">
+</head>
+
+<body>
+<div class="dropdown">
+    <button class="dropbtn">Menu</button>
+    <div class="dropdown-content">
+        <a href="index.html">Home</a>
+        <a href="letters.html">Letters</a>
+        <a href="facts.html">Facts</a>
+        <a href="daily.html">Daily</a>
+    </div>
+</div>
+<div class="header">
+    <h1> Daily Nori </h1>
+</div>
+<div class="daily-con">
+    <div><img id="daily-photo" alt="Daily Image" loading="lazy"></div>
+</div>
+
+<script>
+
+    // Update Len of images
+    image_num = 126;
+    const images = [];
+
+
+    for (let i = 1; i < image_num + 1; i++) {
+        name = 'img' + String(i);
+        images.push(name);
+    }
+
+    // Get the current day of the year (1-365)
+    const now = new Date();
+    const start = new Date(now.getFullYear(), 0, 0); // Start of the year
+    const diff = now - start; // Difference in milliseconds
+    const oneDay = 1000 * 60 * 60 * 24; // Milliseconds in one day
+    const dayOfYear = Math.floor(diff / oneDay); // Calculate the day of the year
+
+    // Choose an image based on the day of the year (mod the number of images)
+    const totalImages = images.length;
+    const imageIndex = dayOfYear % totalImages; // Ensure it loops over the images
+    const selectedImage = images[imageIndex];
+
+    // Set the image source
+    document.getElementById('daily-photo').src = `images/${selectedImage}.jpg`;
+
+    // Optionally set WebP as a fallback for modern browsers:
+    // <source type="image/webp" srcset="images/${selectedImage}.webp">
+</script>
+</body>
+</html>
