@@ -166,6 +166,7 @@ h1 {
     display: flex;
     justify-content: center;
     text-align: center;
+    padding: 3% 7%;
 }
 .letters-p {
     font-size: 1.25em; /* Adjust size as needed */
@@ -178,7 +179,7 @@ h1 {
 .let-con {
     display: grid;
     max-width: 600px;
-    padding: 5% 5% 5% 5%;
+    padding: 6%;
 }
 .let-medcon {
     border: 2px solid black;
