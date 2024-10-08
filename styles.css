@@ -6,6 +6,7 @@
 
 html {
     font-family: "Comic Sans MS", cursive, sans-serif;
+    cursor: url('donkey1.png'), auto;
 }
 body {
     background: linear-gradient(to left, indianred, #FFFF40);
