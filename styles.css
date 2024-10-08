@@ -12,8 +12,6 @@ body {
     background: linear-gradient(to left, indianred, #FFFF40);
     height: 100%;
     font-family: "Comic Sans MS", cursive, sans-serif;
-    margin: 20px 0 40px 0;
-    padding-bottom: 20px;
 }
 
 h1 {
@@ -168,7 +166,6 @@ h1 {
     display: flex;
     justify-content: center;
     text-align: center;
-    margin: 20px 5% 10px 5%;
 }
 .letters-p {
     font-size: 1.25em; /* Adjust size as needed */
@@ -177,9 +174,22 @@ h1 {
     display: flex;
     justify-content: center;
     text-align: center;
-    margin: 0 5%;
 }
-
+.let-con {
+    display: grid;
+    max-width: 600px;
+    padding: 5% 5% 5% 5%;
+}
+.let-medcon {
+    border: 2px solid black;
+    background: rgba(255, 255, 255, .5);
+}
+.let-bigcon {
+    display: grid;
+    justify-content: center;
+    margin: 3% 2%;
+    border-radius: 5%;
+}
 /* Audio */
 .audio-container {
   position: relative;
