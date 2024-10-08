@@ -241,38 +241,13 @@ h1 {
     text-align: center;
     padding: 0 3% 3%;
 }
-/* Nori */
 .slider-container {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-}
-
-/* Wrapper for all slides */
-.slides {
     display: flex;
-    transition: transform 0.5s ease-in-out;
-    will-change: transform; /* Optimizes performance for smoother transitions */
+    justify-content: center;
 }
-
-/* Individual slides */
-.slide {
-    min-width: 100%;
-    box-sizing: border-box;
-    padding: 20px;
-    text-align: center;
-    flex-shrink: 0; /* Prevents shrinking, ensuring all slides maintain 100% width */
-}
-
-/* Responsive image handling */
-.slide img {
-    width: 100%;  /* Makes sure the images fit within the slide */
-    height: auto; /* Keeps the image proportions intact */
-}
-
-/* Optional: You can add media queries to adjust padding or other properties for smaller devices */
-@media (max-width: 600px) {
-    .slide {
-        padding: 10px; /* Reduces padding for smaller screens */
+@media (max-width: 900px) {
+    .slider-container {
+        display: grid;
+        text-align: center;
     }
 }
