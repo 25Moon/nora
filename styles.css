@@ -17,10 +17,10 @@ body {
 
 h1 {
     font-family: 'Brush Script MT', cursive;
-    font-size: 5em; /* Adjust size as needed */
+    font-size: 4.5em; /* Adjust size as needed */
     color: #ffffff; /* Optional: A romantic pink color */
     text-shadow: 2px 2px 5px black, -2px 2px 5px black, 2px -2px 5px black, -2px -2px 5px black;
-    margin-bottom: 5%;
+    margin: 0 5% 2%;
 }
 @media (min-width: 1024px) {
     h1 {
