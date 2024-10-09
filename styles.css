@@ -203,11 +203,14 @@ h1 {
 .softyr-bg {
     background: linear-gradient(to right, indianred, #FFF) !important;
 }
+.softry-bg {
+    background: linear-gradient(to left, indianred, #FFF) !important;
+}
 .softb-bg  {
     background: linear-gradient(to bottom right, rgba(109, 153, 232, 1), rgba(255, 255, 255, .8)) !important;
 }
 .softc-bg  {
-    background: linear-gradient(to right, indianred, #FFFF40);
+    background: linear-gradient(to top right, indianred, #FFFF40);
 }
 
 /* Audio */
