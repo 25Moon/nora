@@ -82,7 +82,7 @@ h1 {
 
 /* HEADER */
 .header {
-    display: flex;
+    display: grid;
     justify-content: center;
     text-align: center;
     margin: 40px 0;
@@ -143,8 +143,11 @@ h1 {
     }
 }
 .fit {
-    transform: scale(.85);
-    margin-top: 40px;
+    width: 30%;
+}
+.fit-con {
+    display: flex;
+    justify-content: center;
 }
 /* Facts */
 .facts-p {
