@@ -197,8 +197,17 @@ h1 {
 .softp-bg {
     background: linear-gradient(rgba(232, 158, 184, .5), rgba(255, 255, 255, .5)) !important;
 }
+.softpp-bg {
+    background: linear-gradient(to bottom right, rgba(232, 158, 184, .5), rgba(109, 153, 232, 1)) !important;
+}
+.softyr-bg {
+    background: linear-gradient(to right, indianred, #FFF) !important;
+}
 .softb-bg  {
     background: linear-gradient(to bottom right, rgba(109, 153, 232, 1), rgba(255, 255, 255, .8)) !important;
+}
+.softc-bg  {
+    background: linear-gradient(to right, indianred, #FFFF40);
 }
 
 /* Audio */
