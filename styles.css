@@ -9,7 +9,7 @@ html {
     cursor: url('donkey1.png'), auto;
 }
 body {
-    background: linear-gradient(to left, indianred, #FFFF40);
+    background: linear-gradient(to left, white, white, #FFFF40, white, white);
     height: 100%;
     font-family: "Comic Sans MS", cursive, sans-serif;
 }
