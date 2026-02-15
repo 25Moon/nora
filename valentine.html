@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy Valentine’s Day, Nora 💘</title>
+  <meta name="description" content="A sweet Valentine’s Day page for Nora." />
+  <style>
+    :root{
+      --bg1:#0b1026;
+      --bg2:#1b0f2a;
+      --card:#ffffff10;
+      --card2:#ffffff14;
+      --text:#f7f7fb;
+      --muted:#d9d9e6;
+      --accent:#ff4d8d;
+      --accent2:#ffb3c7;
+      --ring:#ffffff2a;
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+      --radius: 22px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font);
+      color:var(--text);
+      overflow-x:hidden;
+      background:
+        radial-gradient(1200px 900px at 20% 10%, #ff4d8d22 0%, transparent 60%),
+        radial-gradient(900px 700px at 80% 20%, #8b5cff22 0%, transparent 60%),
+        radial-gradient(900px 700px at 50% 100%, #00d4ff14 0%, transparent 55%),
+        linear-gradient(160deg, var(--bg1), var(--bg2));
+    }
+
+    /* Floating hearts background */
+    .float-layer{
+      position:fixed; inset:0;
+      pointer-events:none;
+      overflow:hidden;
+      opacity:.9;
+      filter: drop-shadow(0 8px 18px rgba(0,0,0,.25));
+    }
+    .heart{
+      position:absolute;
+      width:18px; height:18px;
+      transform: rotate(45deg);
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius: 6px;
+      animation: floatUp linear infinite;
+      opacity:.85;
+    }
+    .heart:before,.heart:after{
+      content:"";
+      position:absolute;
+      width:18px; height:18px;
+      background: inherit;
+      border-radius: 50%;
+    }
+    .heart:before{left:-9px; top:0}
+    .heart:after{left:0; top:-9px}
+
+    @keyframes floatUp{
+      from{ transform: translateY(110vh) rotate(45deg) scale(var(--s)); }
+      to{ transform: translateY(-20vh) rotate(45deg) scale(var(--s)); }
+    }
+
+    /* Layout */
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 40px 16px;
+    }
+    .card{
+      width:min(980px, 100%);
+      background: linear-gradient(180deg, var(--card), var(--card2));
+      border: 1px solid var(--ring);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      overflow:hidden;
+      position:relative;
+      backdrop-filter: blur(10px);
+    }
+    .top{
+      padding: 34px 26px 18px;
+      display:flex;
+      gap:22px;
+      align-items:center;
+      border-bottom: 1px solid var(--ring);
+      position:relative;
+    }
+    .badge{
+      width:68px; height:68px;
+      border-radius: 20px;
+      background: radial-gradient(circle at 30% 30%, #fff, #ffd1df 35%, #ff4d8d 75%);
+      box-shadow: 0 10px 30px rgba(255,77,141,.25);
+      display:grid;
+      place-items:center;
+      position:relative;
+      flex: 0 0 auto;
+    }
+    .badge span{
+      font-size: 30px;
+      transform: translateY(-1px);
+    }
+    .title h1{
+      margin:0;
+      font-size: clamp(28px, 4vw, 44px);
+      letter-spacing: -.02em;
+      line-height:1.05;
+    }
+    .title p{
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 15.5px;
+      line-height:1.5;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      padding: 18px;
+    }
+    @media (max-width: 900px){
+      .grid{grid-template-columns:1fr}
+      .top{align-items:flex-start}
+      .badge{width:58px;height:58px;border-radius:18px}
+    }
+
+    .panel{
+      border: 1px solid var(--ring);
+      border-radius: 18px;
+      background: #00000014;
+      padding: 18px;
+    }
+    .panel h2{
+      margin:0 0 10px;
+      font-size: 18px;
+      letter-spacing:-.01em;
+    }
+    .panel p{
+      margin: 0 0 10px;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 15.5px;
+    }
+
+    .big-note{
+      font-size: 18px;
+      color: var(--text);
+      line-height:1.65;
+      margin-top: 10px;
+    }
+
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 12px;
+    }
+    .chip{
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: #ffffff12;
+      border: 1px solid var(--ring);
+      font-size: 13.5px;
+      color: #f2f2ff;
+      white-space: nowrap;
+    }
+
+    .ctaRow{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top: 14px;
+    }
+    button{
+      appearance:none;
+      border: 1px solid var(--ring);
+      background: #ffffff12;
+      color: var(--text);
+      padding: 12px 14px;
+      border-radius: 14px;
+      cursor:pointer;
+      font-weight: 600;
+      transition: transform .08s ease, background .2s ease, border-color .2s ease;
+    }
+    button:hover{
+      background:#ffffff18;
+      border-color:#ffffff44;
+      transform: translateY(-1px);
+    }
+    button.primary{
+      background: linear-gradient(135deg, var(--accent), #ff7aa8);
+      border-color: transparent;
+      color:#140711;
+      box-shadow: 0 14px 30px rgba(255,77,141,.22);
+    }
+    button.primary:hover{ transform: translateY(-2px); }
+
+    .polaroid{
+      border-radius: 18px;
+      border: 1px solid var(--ring);
+      overflow:hidden;
+      background: #ffffff10;
+    }
+    .photo{
+      height: 280px;
+      display:grid;
+      place-items:center;
+      background:
+        radial-gradient(800px 420px at 30% 20%, #ff4d8d33, transparent 60%),
+        radial-gradient(600px 380px at 70% 30%, #8b5cff33, transparent 60%),
+        linear-gradient(135deg, #0b1026, #1b0f2a);
+      position:relative;
+    }
+    .photo .hint{
+      text-align:center;
+      padding: 0 18px;
+      color: #f6f6ff;
+    }
+    .photo .hint strong{
+      display:block;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+    .photo .hint span{
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .polaroid .caption{
+      padding: 14px 14px 16px;
+      font-size: 14.5px;
+      color: var(--muted);
+      line-height:1.5;
+    }
+    .caption b{ color: var(--text); }
+
+    .footer{
+      padding: 16px 18px 20px;
+      border-top: 1px solid var(--ring);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap: 12px;
+      flex-wrap:wrap;
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+
+    .toast{
+      position:fixed;
+      left:50%;
+      bottom:18px;
+      transform: translateX(-50%) translateY(30px);
+      opacity:0;
+      background: #0b1026cc;
+      border: 1px solid #ffffff2a;
+      border-radius: 14px;
+      padding: 12px 14px;
+      color: #f6f6ff;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 16px 40px rgba(0,0,0,.35);
+      transition: opacity .22s ease, transform .22s ease;
+      max-width: min(560px, calc(100% - 24px));
+      pointer-events:none;
+    }
+    .toast.show{
+      opacity:1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Tiny sparkles */
+    .sparkle{
+      position:absolute;
+      width:6px;height:6px;
+      border-radius:50%;
+      background: #fff;
+      opacity:.9;
+      animation: pop 900ms ease forwards;
+      filter: drop-shadow(0 8px 10px rgba(0,0,0,.35));
+      pointer-events:none;
+    }
+    @keyframes pop{
+      from{ transform: translate(0,0) scale(.6); opacity:.95; }
+      to{ transform: translate(var(--dx), var(--dy)) scale(0); opacity:0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="float-layer" aria-hidden="true" id="floatLayer"></div>
+
+  <main class="wrap">
+    <section class="card" role="article" aria-label="Valentine page for Nora">
+      <header class="top">
+        <div class="badge" aria-hidden="true"><span>💘</span></div>
+        <div class="title">
+          <h1>Happy Valentine’s Day, Nora</h1>
+          <p>
+            I just wanted you to know: you’re my favorite person, my calm, my chaos, my “wow” —
+            all at once. 💖
+          </p>
+        </div>
+      </header>
+
+      <div class="grid">
+        <div class="panel">
+          <h2>For you, my love</h2>
+          <p class="big-note" id="note">
+            Nora, you make my world feel lighter. Your laugh is my favorite sound, your kindness is
+            my favorite thing, and being with you feels like coming home.
+            <br><br>
+            I’m grateful for you — today and every day. 🥺💗
+          </p>
+
+          <div class="chips" aria-label="Cute reasons list">
+            <div class="chip">✨ Your smile</div>
+            <div class="chip">🫶 Your heart</div>
+            <div class="chip">🌙 Late-night talks</div>
+            <div class="chip">✈️ Our adventures</div>
+            <div class="chip">🍓 Sweet moments</div>
+            <div class="chip">💞 Us</div>
+          </div>
+
+          <div class="ctaRow">
+            <button class="primary" id="loveBtn">Click for a surprise 💝</button>
+            <button id="copyBtn">Copy a love note</button>
+            <button id="dateBtn">Pick our next date idea</button>
+          </div>
+        </div>
+
+        <aside class="polaroid">
+          <div class="photo" id="photo">
+            <div class="hint">
+              <strong>Add a photo of you two here</strong>
+              <span>Optional: replace this box with an image (instructions below).</span>
+            </div>
+          </div>
+          <div class="caption">
+            <b>Us</b> — the cutest plot twist of my life. <br>
+            P.S. If you’re reading this, you owe me a kiss. 😌
+          </div>
+        </aside>
+      </div>
+
+      <div class="footer">
+        <div>Made with love, specifically for <b>Nora</b>. 💗</div>
+        <div id="dateStamp"></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    // --- Date stamp ---
+    (function(){
+      const d = new Date();
+      const opts = { year:'numeric', month:'long', day:'numeric' };
+      document.getElementById('dateStamp').textContent = d.toLocaleDateString(undefined, opts);
+    })();
+
+    // --- Floating hearts background ---
+    (function(){
+      const layer = document.getElementById('floatLayer');
+      const heartCount = 22; // tweak if you want more/less
+      for(let i=0;i<heartCount;i++){
+        const h = document.createElement('div');
+        h.className = 'heart';
+        const left = Math.random()*100;
+        const dur = 7 + Math.random()*9;
+        const delay = Math.random()*-dur; // start staggered
+        const size = 0.6 + Math.random()*1.4;
+        h.style.left = left + 'vw';
+        h.style.animationDuration = dur + 's';
+        h.style.animationDelay = delay + 's';
+        h.style.setProperty('--s', size.toFixed(2));
+        h.style.opacity = (0.45 + Math.random()*0.5).toFixed(2);
+        layer.appendChild(h);
+      }
+    })();
+
+    // --- Toast helper ---
+    const toast = document.getElementById('toast');
+    let toastTimer = null;
+    function showToast(msg){
+      toast.textContent = msg;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(()=>toast.classList.remove('show'), 2200);
+    }
+
+    // --- Sparkles ---
+    function sparkleBurst(x, y, count=14){
+      for(let i=0;i<count;i++){
+        const s = document.createElement('div');
+        s.className = 'sparkle';
+        const dx = (Math.random()*160 - 80) + 'px';
+        const dy = (Math.random()*120 - 60) + 'px';
+        s.style.left = x + 'px';
+        s.style.top  = y + 'px';
+        s.style.setProperty('--dx', dx);
+        s.style.setProperty('--dy', dy);
+        document.body.appendChild(s);
+        setTimeout(()=>s.remove(), 950);
+      }
+    }
+
+    // --- Button actions ---
+    document.getElementById('loveBtn').addEventListener('click', (e)=>{
+      const rect = e.target.getBoundingClientRect();
+      sparkleBurst(rect.left + rect.width/2, rect.top + rect.height/2, 18);
+      showToast("Nora… you’re my favorite everything. 💖");
+    });
+
+    document.getElementById('copyBtn').addEventListener('click', async ()=>{
+      const text =
+`Nora,
+You make life sweeter just by being in it. I’m grateful for you—today and always.
+Happy Valentine’s Day 💗`;
+      try{
+        await navigator.clipboard.writeText(text);
+        showToast("Love note copied 💌");
+      }catch{
+        showToast("Couldn’t copy (browser blocked it).");
+      }
+    });
+
+    document.getElementById('dateBtn').addEventListener('click', ()=>{
+      const ideas = [
+        "Sunset walk + dessert date 🍰",
+        "Cook dinner together + movie night 🍝🎬",
+        "Coffee + bookstore + one surprise gift 📚☕",
+        "Picnic (even indoors) + playlist + candles 🧺🕯️",
+        "Museum + cute photos + tacos 🌮📸",
+        "Spa night at home + face masks + cuddles 🫧💆‍♀️"
+      ];
+      const pick = ideas[Math.floor(Math.random()*ideas.length)];
+      showToast(pick);
+    });
+
+    // --- Optional: Click photo area for sparkles ---
+    document.getElementById('photo').addEventListener('click', (e)=>{
+      sparkleBurst(e.clientX, e.clientY, 12);
+      showToast("Okayyy this is cute. 😌💗");
+    });
+
+    // --- EASY PHOTO SWAP INSTRUCTIONS ---
+    // If you want to replace the photo box with a real image:
+    // 1) Put an image file in the same folder as this HTML (ex: "nora.jpg")
+    // 2) Uncomment the lines below and set the filename.
+
+    // const photo = document.getElementById('photo');
+    // photo.style.background = "url('nora.jpg') center/cover no-repeat";
+    // photo.innerHTML = ""; // removes the placeholder text
+  </script>
+</body>
+</html>
